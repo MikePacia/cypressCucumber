@@ -1,4 +1,4 @@
-import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
+import { Given, When, Then, Before, After} from '@badeball/cypress-cucumber-preprocessor'
 
 
 Given("I have launched the swag labs application", function () {
@@ -24,8 +24,6 @@ Then("I should land on the products page", function () {
 
 
 //LOG IN FAILURE
-
-
 When(`I enter the incorrect username and password`, () => {
     const username = '#user-name'
     const pword = '#password'
@@ -40,3 +38,17 @@ Then(`I should get the error message {string}`, (message) => {
     cy.get(error).contains(message)
 });
 
+/**
+ * Data driven 
+ */
+
+When(`I enter the username {string}`, (userN) => {
+    const username = '#user-name'
+    cy.get(username).type(userN)
+    
+});
+
+When(`I enter the wrong password {string}`, (pass) => {
+    const pword = '#password'
+    cy.get(pword).type(pass)
+});

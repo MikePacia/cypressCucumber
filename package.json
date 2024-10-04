@@ -4,7 +4,10 @@
   "description": "This is cycpress cucumber based framework",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "e2e:chrome-visible": "cypress run --browser chrome --headed",
+    "e2e:chrome": "cypress run --browser chrome",
+    "e2e:firefox": "cypress run --browser firefox"
   },
   "author": "",
   "license": "ISC",
